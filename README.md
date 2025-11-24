@@ -243,7 +243,7 @@ async def main():
     translator_config = TXTTranslatorConfig(
         base_url="https://api.openai.com/v1/",
         api_key="YOUR_OPENAI_API_KEY",
-        model_id="gpt-4o",
+        model_id="gpt-5-nano-2025-08-07",  # GPT-5 模型
         to_lang="Chinese",
     )
 
@@ -292,7 +292,7 @@ async def main():
     translator_config = JsonTranslatorConfig(
         base_url="https://api.openai.com/v1/",
         api_key="YOUR_OPENAI_API_KEY",
-        model_id="gpt-4o",
+        model_id="gpt-5-nano-2025-08-07",  # GPT-5 模型
         to_lang="Chinese",
         json_paths=["$.*", "$.name"]  # Conforms to jsonpath-ng syntax, values at matching paths will be translated
     )
@@ -341,7 +341,7 @@ async def main():
     translator_config = DocxTranslatorConfig(
         base_url="https://api.openai.com/v1/",
         api_key="YOUR_OPENAI_API_KEY",
-        model_id="gpt-4o",
+        model_id="gpt-5-nano-2025-08-07",  # GPT-5 模型
         to_lang="Chinese",
         insert_mode="replace",  # Options: "replace", "append", "prepend"
         separator="\n",  # Separator used in "append" and "prepend" modes
@@ -391,7 +391,7 @@ async def main():
     translator_config = XlsxTranslatorConfig(
         base_url="https://api.openai.com/v1/",
         api_key="YOUR_OPENAI_API_KEY",
-        model_id="gpt-4o",
+        model_id="gpt-5-nano-2025-08-07",  # GPT-5 模型
         to_lang="Chinese",
         insert_mode="replace",  # Options: "replace", "append", "prepend"
         separator="\n",  # Separator used in "append" and "prepend" modes
@@ -439,7 +439,7 @@ async def html():
     translator_config = HtmlTranslatorConfig(
         base_url="https://api.openai.com/v1/",
         api_key="YOUR_OPENAI_API_KEY",
-        model_id="gpt-4o",
+        model_id="gpt-5-nano-2025-08-07",  # GPT-5 模型
         to_lang="Chinese",
         insert_mode="replace",  # Options: "replace", "append", "prepend"
         separator="\n",  # Separator used for "append" and "prepend" modes
@@ -463,7 +463,7 @@ async def epub():
     translator_config = EpubTranslatorConfig(
         base_url="https://api.openai.com/v1/",
         api_key="YOUR_OPENAI_API_KEY",
-        model_id="gpt-4o",
+        model_id="gpt-5-nano-2025-08-07",  # GPT-5 模型
         to_lang="Chinese",
         insert_mode="replace",  # Options: "replace", "append", "prepend"
         separator="\n",  # Separator used for "append" and "prepend" modes

@@ -64,6 +64,8 @@ class AiTranslator(Translator[T]):
                     retry=config.retry,
                     system_proxy_enable=config.system_proxy_enable,
                     force_json=config.force_json,
+                    max_completion_tokens=config.max_completion_tokens,
+                    reasoning_effort=config.reasoning_effort,
                 )
                 self.glossary_agent = GlossaryAgent(glossary_agent_config)
 
