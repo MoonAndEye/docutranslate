@@ -260,13 +260,15 @@ class Agent:
             "temperature": temperature,
             "top_p": top_p,
         }
-        # GPT-5 参数
+        # GPT-5 max_completion_tokens 参数
         if self.max_completion_tokens is not None:
             data["max_completion_tokens"] = self.max_completion_tokens
-        if self.reasoning_effort is not None:
-            data["reasoning_effort"] = self.reasoning_effort
+        # 先应用 thinking mode
         if self.thinking != "default":
             self._add_thinking_mode(data)
+        # 用户显式设置的 reasoning_effort 优先于 thinking mode 的设置
+        if self.reasoning_effort is not None:
+            data["reasoning_effort"] = self.reasoning_effort
         if json_format:
             data["response_format"] = {"type": "json_object"}
         return headers, data
