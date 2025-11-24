@@ -225,7 +225,7 @@ async def main():
     translator_config = TXTTranslatorConfig(
         base_url="https://api.openai.com/v1/",
         api_key="YOUR_OPENAI_API_KEY",
-        model_id="gpt-4o",
+        model_id="gpt-5-nano-2025-08-07",  # GPT-5 模型
         to_lang="中文",
     )
 
@@ -274,7 +274,7 @@ async def main():
     translator_config = JsonTranslatorConfig(
         base_url="https://api.openai.com/v1/",
         api_key="YOUR_OPENAI_API_KEY",
-        model_id="gpt-4o",
+        model_id="gpt-5-nano-2025-08-07",  # GPT-5 模型
         to_lang="中文",
         json_paths=["$.*", "$.name"]  # 满足jsonpath-ng路径语法,匹配路径的值都会被翻译
     )
@@ -323,7 +323,7 @@ async def main():
     translator_config = DocxTranslatorConfig(
         base_url="https://api.openai.com/v1/",
         api_key="YOUR_OPENAI_API_KEY",
-        model_id="gpt-4o",
+        model_id="gpt-5-nano-2025-08-07",  # GPT-5 模型
         to_lang="中文",
         insert_mode="replace",  # 备选项 "replace", "append", "prepend"
         separator="\n",  # "append", "prepend"模式时使用的分隔符
@@ -373,7 +373,7 @@ async def main():
     translator_config = XlsxTranslatorConfig(
         base_url="https://api.openai.com/v1/",
         api_key="YOUR_OPENAI_API_KEY",
-        model_id="gpt-4o",
+        model_id="gpt-5-nano-2025-08-07",  # GPT-5 模型
         to_lang="中文",
         insert_mode="replace",  # 备选项 "replace", "append", "prepend"
         separator="\n",  # "append", "prepend"模式时使用的分隔符
@@ -421,7 +421,7 @@ async def html():
     translator_config = HtmlTranslatorConfig(
         base_url="https://api.openai.com/v1/",
         api_key="YOUR_OPENAI_API_KEY",
-        model_id="gpt-4o",
+        model_id="gpt-5-nano-2025-08-07",  # GPT-5 模型
         to_lang="中文",
         insert_mode="replace",  # 备选项 "replace", "append", "prepend"
         separator="\n",  # "append", "prepend"模式时使用的分隔符
@@ -445,7 +445,7 @@ async def epub():
     translator_config = EpubTranslatorConfig(
         base_url="https://api.openai.com/v1/",
         api_key="YOUR_OPENAI_API_KEY",
-        model_id="gpt-4o",
+        model_id="gpt-5-nano-2025-08-07",  # GPT-5 模型
         to_lang="中文",
         insert_mode="replace",  # 备选项 "replace", "append", "prepend"
         separator="\n",  # "append", "prepend"模式时使用的分隔符

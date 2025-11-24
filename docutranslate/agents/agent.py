@@ -51,6 +51,8 @@ class AgentConfig:
     retry: int = 2
     system_proxy_enable: bool = False
     force_json: bool = False  # 应输出json格式时强制ai输出json
+    max_completion_tokens: int | None = None  # GPT-5 使用 max_completion_tokens 取代 max_tokens
+    reasoning_effort: str | None = None  # GPT-5 推理强度: "none", "low", "medium", "high"
 
 
 class TotalErrorCounter:
@@ -225,6 +227,9 @@ class Agent:
         self.retry = config.retry
 
         self.system_proxy_enable = config.system_proxy_enable
+        # GPT-5 参数
+        self.max_completion_tokens = config.max_completion_tokens
+        self.reasoning_effort = config.reasoning_effort
 
     def _add_thinking_mode(self, data: dict):
         thinking_mode_result=get_thinking_mode(self.domain,data.get("model"))
@@ -255,6 +260,11 @@ class Agent:
             "temperature": temperature,
             "top_p": top_p,
         }
+        # GPT-5 参数
+        if self.max_completion_tokens is not None:
+            data["max_completion_tokens"] = self.max_completion_tokens
+        if self.reasoning_effort is not None:
+            data["reasoning_effort"] = self.reasoning_effort
         if self.thinking != "default":
             self._add_thinking_mode(data)
         if json_format:

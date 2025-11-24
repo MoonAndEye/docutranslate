@@ -230,7 +230,7 @@ async def main():
     translator_config = TXTTranslatorConfig(
         base_url="https://api.openai.com/v1/",
         api_key="YOUR_OPENAI_API_KEY",
-        model_id="gpt-4o",
+        model_id="gpt-5-nano-2025-08-07",  # GPT-5 モデル
         to_lang="日本語",
     )
 
@@ -279,7 +279,7 @@ async def main():
     translator_config = JsonTranslatorConfig(
         base_url="https://api.openai.com/v1/",
         api_key="YOUR_OPENAI_API_KEY",
-        model_id="gpt-4o",
+        model_id="gpt-5-nano-2025-08-07",  # GPT-5 モデル
         to_lang="日本語",
         json_paths=["$.*", "$.name"]  # jsonpath-ng構文に準拠し、一致するパスの値が翻訳されます
     )
@@ -328,7 +328,7 @@ async def main():
     translator_config = DocxTranslatorConfig(
         base_url="https://api.openai.com/v1/",
         api_key="YOUR_OPENAI_API_KEY",
-        model_id="gpt-4o",
+        model_id="gpt-5-nano-2025-08-07",  # GPT-5 モデル
         to_lang="日本語",
         insert_mode="replace",  # 選択肢: "replace", "append", "prepend"
         separator="\n",  # "append", "prepend"モードで使用する区切り文字
@@ -378,7 +378,7 @@ async def main():
     translator_config = XlsxTranslatorConfig(
         base_url="https://api.openai.com/v1/",
         api_key="YOUR_OPENAI_API_KEY",
-        model_id="gpt-4o",
+        model_id="gpt-5-nano-2025-08-07",  # GPT-5 モデル
         to_lang="日本語",
         insert_mode="replace",  # 選択肢: "replace", "append", "prepend"
         separator="\n",  # "append", "prepend"モードで使用する区切り文字
@@ -426,7 +426,7 @@ async def html():
     translator_config = HtmlTranslatorConfig(
         base_url="https://api.openai.com/v1/",
         api_key="YOUR_OPENAI_API_KEY",
-        model_id="gpt-4o",
+        model_id="gpt-5-nano-2025-08-07",  # GPT-5 モデル
         to_lang="中国語",
         insert_mode="replace",  # 選択肢: "replace", "append", "prepend"
         separator="\n",  # "append", "prepend" モードで使用される区切り文字
@@ -450,7 +450,7 @@ async def epub():
     translator_config = EpubTranslatorConfig(
         base_url="https://api.openai.com/v1/",
         api_key="YOUR_OPENAI_API_KEY",
-        model_id="gpt-4o",
+        model_id="gpt-5-nano-2025-08-07",  # GPT-5 モデル
         to_lang="中国語",
         insert_mode="replace",  # 選択肢: "replace", "append", "prepend"
         separator="\n",  # "append", "prepend" モードで使用される区切り文字
