@@ -8,6 +8,7 @@ default_params = {
     "system_proxy_enable": False,
     "max_completion_tokens": None,
     "reasoning_effort": None,
+    "verbosity": None,
 }
 
 # GPT-5 推薦模型
