@@ -66,6 +66,7 @@ class AiTranslator(Translator[T]):
                     force_json=config.force_json,
                     max_completion_tokens=config.max_completion_tokens,
                     reasoning_effort=config.reasoning_effort,
+                    verbosity=config.verbosity,
                 )
                 self.glossary_agent = GlossaryAgent(glossary_agent_config)
 

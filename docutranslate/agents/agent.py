@@ -52,7 +52,8 @@ class AgentConfig:
     system_proxy_enable: bool = False
     force_json: bool = False  # 应输出json格式时强制ai输出json
     max_completion_tokens: int | None = None  # GPT-5 使用 max_completion_tokens 取代 max_tokens
-    reasoning_effort: str | None = None  # GPT-5 推理强度: "none", "low", "medium", "high"
+    reasoning_effort: str | None = None  # GPT-5 推理强度: "minimal", "low", "medium", "high"
+    verbosity: str | None = None  # GPT-5 回應詳細程度: "low", "medium", "high"
 
 
 class TotalErrorCounter:
@@ -230,6 +231,7 @@ class Agent:
         # GPT-5 参数
         self.max_completion_tokens = config.max_completion_tokens
         self.reasoning_effort = config.reasoning_effort
+        self.verbosity = config.verbosity
 
     def _add_thinking_mode(self, data: dict):
         thinking_mode_result=get_thinking_mode(self.domain,data.get("model"))
@@ -243,7 +245,7 @@ class Agent:
 
 
     def _prepare_request_data(
-        self, prompt: str, system_prompt: str, temperature=None, top_p=0.9,json_format=False
+        self, prompt: str, system_prompt: str, temperature=None, json_format=False
     ):
         if temperature is None:
             temperature = self.temperature
@@ -258,7 +260,6 @@ class Agent:
                 {"role": "user", "content": prompt},
             ],
             "temperature": temperature,
-            "top_p": top_p,
         }
         # GPT-5 max_completion_tokens 参数
         if self.max_completion_tokens is not None:
@@ -269,6 +270,9 @@ class Agent:
         # 用户显式设置的 reasoning_effort 优先于 thinking mode 的设置
         if self.reasoning_effort is not None:
             data["reasoning_effort"] = self.reasoning_effort
+        # GPT-5 verbosity 参数
+        if self.verbosity is not None:
+            data["verbosity"] = self.verbosity
         if json_format:
             data["response_format"] = {"type": "json_object"}
         return headers, data
